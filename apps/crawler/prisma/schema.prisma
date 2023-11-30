@@ -17,3 +17,22 @@ model User {
   updatedAt DateTime @updatedAt
   username  String   @unique
 }
+
+model Store {
+  category    String?
+  company     String?
+  createdAt   DateTime @default(now())
+  description String?
+  id          String   @id @default(cuid())
+  name        String?
+  updatedAt   DateTime @updatedAt
+}
+
+model Category {
+  createdAt      DateTime @default(now())
+  description    String
+  id             String   @id @default(cuid())
+  name           String   @unique
+  parentCategory String?
+  updatedAt      DateTime @updatedAt
+}
